@@ -28,7 +28,8 @@
     },
     "abort": {
       "already_configured": "This account is already configured",
-      "reauth_successful": "Client keys saved."
+      "reauth_successful": "Client keys saved.",
+      "unknown": "Unexpected error"
     }
   },
   "options": {

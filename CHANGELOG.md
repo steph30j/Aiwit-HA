@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented here.
 
+## [0.7.13]
+
+### Fixed
+- Hassfest validation: manifest keys sorted (`domain`, `name`, then alphabetical)
+  and `CONFIG_SCHEMA` declared (`cv.config_entry_only_config_schema`).
+- Added the `unknown` abort message used by the reconfiguration flow.
+
 ## [0.7.12]
 
 ### Changed

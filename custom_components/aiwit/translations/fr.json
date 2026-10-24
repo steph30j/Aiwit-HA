@@ -28,7 +28,8 @@
     },
     "abort": {
       "already_configured": "Ce compte est déjà configuré",
-      "reauth_successful": "Clés client enregistrées."
+      "reauth_successful": "Clés client enregistrées.",
+      "unknown": "Erreur inattendue"
     }
   },
   "options": {
