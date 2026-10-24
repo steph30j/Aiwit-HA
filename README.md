@@ -1,6 +1,8 @@
 # Aiwit / EKEN Doorbell — Home Assistant integration
 
-**Current version: 0.7.12**
+<p align="center"><img src="https://raw.githubusercontent.com/steph30j/Aiwit-HA/main/custom_components/aiwit/brand/icon.png" width="128" alt="Aiwit / EKEN Doorbell"></p>
+
+**Current version: 0.7.13**
 
 Unofficial integration for **Aiwit / EKEN** video doorbells (API `api.v2.gdxp.com`).
 
