@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented here.
 
+## [0.7.14]
+
+### Fixed
+- Hassfest: removed `requests` and `cryptography` from the manifest requirements
+  (both are provided by Home Assistant itself).
+- Hassfest: translation texts no longer contain `<...>` (read as HTML).
+
 ## [0.7.13]
 
 ### Fixed

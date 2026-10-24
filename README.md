@@ -2,7 +2,7 @@
 
 <p align="center"><img src="https://raw.githubusercontent.com/steph30j/Aiwit-HA/main/custom_components/aiwit/brand/icon.png" width="128" alt="Aiwit / EKEN Doorbell"></p>
 
-**Current version: 0.7.13**
+**Current version: 0.7.14**
 
 Unofficial integration for **Aiwit / EKEN** video doorbells (API `api.v2.gdxp.com`).
 
@@ -203,7 +203,7 @@ With a retention of 7 days, keep the folder dated exactly today minus 7 days and
 
 ### Requirements for MP4 conversion
 
-The integration bundles the supplied `aiwit_ts2_decode.py` decoder and declares its Python `cryptography` dependency. The Home Assistant host/container must also provide the `ffmpeg` executable because the decoder uses it to remux the H.264/AAC streams into MP4.
+The integration bundles the supplied `aiwit_ts2_decode.py` decoder and relies on the `cryptography` package already provided by Home Assistant. The Home Assistant host/container must also provide the `ffmpeg` executable because the decoder uses it to remux the H.264/AAC streams into MP4.
 
 See `CHANGELOG.md` for the complete release history.
 

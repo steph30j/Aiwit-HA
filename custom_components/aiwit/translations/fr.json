@@ -36,7 +36,7 @@
     "step": {
       "init": {
         "title": "Aiwit / EKEN — options",
-        "description": "Modifie les identifiants, les clés client et/ou le répertoire de sortie des vignettes. Laisse le mot de passe vide pour conserver l'actuel. Laisse le chemin des vignettes vide pour le défaut (<config>/www/aiwit → /local/aiwit/...). Utilise un chemin absolu déjà dans ton allowlist (ex. /media/your_storage/aiwit/thumbnails) pour les notifications.",
+        "description": "Modifie les identifiants, les clés client et/ou le répertoire de sortie des vignettes. Laisse le mot de passe vide pour conserver l'actuel. Laisse le chemin des vignettes vide pour le défaut (www/aiwit du dossier de configuration → /local/aiwit/...). Utilise un chemin absolu déjà dans ton allowlist (ex. /media/your_storage/aiwit/thumbnails) pour les notifications.",
         "data": {
           "username": "Email / identifiant",
           "password": "Nouveau mot de passe (laisser vide pour conserver l'actuel)",

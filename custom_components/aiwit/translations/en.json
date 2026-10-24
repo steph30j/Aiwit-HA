@@ -36,7 +36,7 @@
     "step": {
       "init": {
         "title": "Aiwit / EKEN — options",
-        "description": "Update credentials, client keys and/or the thumbnail output directory. Leave the password empty to keep the current one. Leave the thumbnail path empty to use the default (<config>/www/aiwit → /local/aiwit/...). Use an absolute path already in your allowlist (e.g. /media/your_storage/aiwit/thumbnails) for notifications.",
+        "description": "Update credentials, client keys and/or the thumbnail output directory. Leave the password empty to keep the current one. Leave the thumbnail path empty to use the default (www/aiwit in your config folder → /local/aiwit/...). Use an absolute path already in your allowlist (e.g. /media/your_storage/aiwit/thumbnails) for notifications.",
         "data": {
           "username": "Email / username",
           "password": "New password (leave empty to keep current)",
