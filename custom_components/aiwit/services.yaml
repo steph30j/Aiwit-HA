@@ -1,0 +1,75 @@
+archive_event_clip:
+  name: Archive event clip
+  description: Download and convert the cloud clip matching one Aiwit RING or PIR event to MP4.
+  fields:
+    device_udid:
+      name: Device UDID
+      description: Aiwit device UDID. Omit it when the configured account exposes exactly one device.
+      required: false
+      example: "EKDB_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+      selector:
+        text:
+    event_type:
+      name: Event type
+      description: Aiwit event type received from the realtime socket.
+      required: true
+      example: pir
+      selector:
+        select:
+          options:
+            - ring
+            - pir
+    event_timestamp:
+      name: Event timestamp
+      description: ISO-8601 timestamp from the aiwit_event Home Assistant event.
+      required: true
+      example: "2025-01-15T11:20:18+00:00"
+      selector:
+        text:
+    output_root:
+      name: Archive root
+      description: Absolute path available to Home Assistant. The integration creates YYYYMMDD folders below this path.
+      required: true
+      example: /media/your_storage/aiwit
+      selector:
+        text:
+    require_mount:
+      name: Require mount
+      description: Optional path that must exist as a directory before archiving (e.g. /media/your_storage). Waits using retries x retry_delay so USB media can come online after reboot.
+      required: false
+      example: /media/your_storage
+      selector:
+        text:
+    delay:
+      name: Initial delay
+      description: Seconds to wait before querying Aiwit cloud for the newly uploaded clip.
+      required: false
+      default: 20
+      selector:
+        number:
+          min: 0
+          max: 120
+          step: 1
+          mode: box
+    retries:
+      name: Retries
+      description: Number of cloud-list attempts if the clip is not available yet.
+      required: false
+      default: 8
+      selector:
+        number:
+          min: 1
+          max: 20
+          step: 1
+          mode: box
+    retry_delay:
+      name: Retry delay
+      description: Seconds between two cloud-list attempts (total wait is about delay + retries x retry_delay).
+      required: false
+      default: 15
+      selector:
+        number:
+          min: 1
+          max: 120
+          step: 1
+          mode: box

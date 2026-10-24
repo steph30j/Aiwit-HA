@@ -1,0 +1,54 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Aiwit / EKEN",
+        "description": "Renseigne les identifiants du compte cloud Aiwit/EKEN et les deux clés client. Les clés ne sont pas fournies avec l'intégration : extrais-les du paquet de l'app officielle avec tools/extract_keys.py (voir README). Utilise un compte secondaire dédié si possible (une seule session est autorisée en même temps).",
+        "data": {
+          "username": "Email / identifiant",
+          "password": "Mot de passe",
+          "login_sign_key": "Clé de signature du login (issue de tools/extract_keys.py)",
+          "socket_key": "Clé de login socket (issue de tools/extract_keys.py)",
+          "udid": "UDID client (optionnel, généré automatiquement si vide)"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Aiwit / EKEN — clés client requises",
+        "description": "Cette entrée a été créée avant que les clés client soient requises. Lance tools/extract_keys.py sur le paquet de l'app officielle (voir README) et saisis les deux clés.",
+        "data": {
+          "login_sign_key": "Clé de signature du login (issue de tools/extract_keys.py)",
+          "socket_key": "Clé de login socket (issue de tools/extract_keys.py)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossible de se connecter au cloud Aiwit (vérifie les identifiants et les clés client)",
+      "invalid_auth": "Identifiant ou mot de passe incorrect",
+      "unknown": "Erreur inattendue"
+    },
+    "abort": {
+      "already_configured": "Ce compte est déjà configuré",
+      "reauth_successful": "Clés client enregistrées."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Aiwit / EKEN — options",
+        "description": "Modifie les identifiants, les clés client et/ou le répertoire de sortie des vignettes. Laisse le mot de passe vide pour conserver l'actuel. Laisse le chemin des vignettes vide pour le défaut (<config>/www/aiwit → /local/aiwit/...). Utilise un chemin absolu déjà dans ton allowlist (ex. /media/your_storage/aiwit/thumbnails) pour les notifications.",
+        "data": {
+          "username": "Email / identifiant",
+          "password": "Nouveau mot de passe (laisser vide pour conserver l'actuel)",
+          "login_sign_key": "Clé de signature du login (issue de tools/extract_keys.py)",
+          "socket_key": "Clé de login socket (issue de tools/extract_keys.py)",
+          "thumbnail_path": "Répertoire des vignettes (chemin absolu, vide = www/aiwit)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossible de se connecter au cloud Aiwit (vérifie les identifiants et les clés client)",
+      "invalid_auth": "Identifiant ou mot de passe incorrect",
+      "unknown": "Erreur inattendue"
+    }
+  }
+}

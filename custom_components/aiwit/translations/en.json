@@ -1,0 +1,54 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Aiwit / EKEN",
+        "description": "Enter your Aiwit/EKEN cloud account credentials and the two client keys. The keys are not shipped with this integration: extract them from the official app package with tools/extract_keys.py (see README). Use a dedicated secondary account if possible.",
+        "data": {
+          "username": "Email / username",
+          "password": "Password",
+          "login_sign_key": "Login signature key (from tools/extract_keys.py)",
+          "socket_key": "Socket login key (from tools/extract_keys.py)",
+          "udid": "Client UDID (optional, leave empty to auto-generate)"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Aiwit / EKEN — client keys required",
+        "description": "This entry was created before the client keys were required. Run tools/extract_keys.py on the official app package (see README) and enter the two keys.",
+        "data": {
+          "login_sign_key": "Login signature key (from tools/extract_keys.py)",
+          "socket_key": "Socket login key (from tools/extract_keys.py)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to Aiwit cloud (check credentials and client keys)",
+      "invalid_auth": "Invalid username or password",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This account is already configured",
+      "reauth_successful": "Client keys saved."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Aiwit / EKEN — options",
+        "description": "Update credentials, client keys and/or the thumbnail output directory. Leave the password empty to keep the current one. Leave the thumbnail path empty to use the default (<config>/www/aiwit → /local/aiwit/...). Use an absolute path already in your allowlist (e.g. /media/your_storage/aiwit/thumbnails) for notifications.",
+        "data": {
+          "username": "Email / username",
+          "password": "New password (leave empty to keep current)",
+          "login_sign_key": "Login signature key (from tools/extract_keys.py)",
+          "socket_key": "Socket login key (from tools/extract_keys.py)",
+          "thumbnail_path": "Thumbnail directory (absolute path, empty = www/aiwit)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to Aiwit cloud (check credentials and client keys)",
+      "invalid_auth": "Invalid username or password",
+      "unknown": "Unexpected error"
+    }
+  }
+}
