@@ -136,6 +136,14 @@ using the default www folder).
 `notify` / `telegram` / etc.). Then `image_path` points there and `image_url`
 is not set.
 
+**Everything on one disk, nothing under www** (0.7.16): put `{date}` in the path, e.g.
+`/media/your_storage/aiwit/{date}`. Each thumbnail is then saved in the clip's day folder,
+next to the archived video, as `<clip>.jpg` (the same file the archive writes: one copy). There is
+no `*_last.jpg` and `image_url` is not set; use `image_path` (Telegram `file:`). If the disk is not
+mounted the thumbnail is not written (warning in the log) and no folder is created on the internal
+storage. The day folders are cleaned by your normal retention script. Existing files in
+`<config>/www/aiwit` are not removed automatically: delete them by hand.
+
 ```yaml
 triggers:
   - trigger: event

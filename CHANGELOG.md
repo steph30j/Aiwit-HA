@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented here.
 
+## [0.7.16]
+
+### Added
+- `thumbnail_path` accepts a **`{date}` placeholder**, e.g. `/media/your_storage/aiwit/{date}`.
+  Each thumbnail is written to the clip's day folder, next to the archived MP4, as `<clip>.jpg`
+  (the name the archive already uses: one copy only). Nothing is written under `www`, no
+  `*_last.jpg`, `image_url` is `None`, `image_path` points to that file. Only the day folder is
+  created: if the disk is not mounted, nothing is written (a warning is logged) instead of silently
+  creating the folders on the internal storage. Day folders are removed by the usual retention script.
+- Default (empty) and plain absolute paths behave exactly as before.
+
 ## [0.7.15]
 
 ### Fixed

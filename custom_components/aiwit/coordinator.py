@@ -358,20 +358,45 @@ class AiwitCoordinator(DataUpdateCoordinator[dict[str, DeviceData]]):
     ) -> tuple[str, str | None]:
         """Write the thumbnail to the configured directory (executor thread).
 
-        Default: <config>/www/aiwit → image_url = /local/aiwit/...
-        Custom absolute path (e.g. /media/.../thumbnails): image_url is None
-        (use image_path with allowlist for notifications).
+        Three modes, depending on the ``thumbnail_path`` option:
 
-        Returns (absolute_path, image_url_or_None). Two files: a stable
-        "last" file and one named after the clip.
+        * empty (default): ``<config>/www/aiwit`` -> image_url = /local/aiwit/...
+          (one file per clip + a stable ``*_last.jpg``).
+        * absolute path containing ``{date}`` (e.g. ``/media/disk/aiwit/{date}``):
+          the day folder of the clip, next to the archived MP4, named ``<clip>.jpg``
+          (the same name the archive uses, so there is a single copy). Nothing is
+          written under www, there is no ``last`` file and image_url is None.
+          Only the day folder is created: if the parent (the disk) is missing,
+          nothing is written instead of silently filling the internal storage.
+        * any other absolute path: flat directory, one file per clip + ``*_last.jpg``.
+
+        Returns (absolute_path, image_url_or_None).
         """
+        stem = re.sub(r"[^A-Za-z0-9._-]+", "_", Path(clip_name).stem) or "clip"
+
+        if self.thumbnail_path and "{date}" in self.thumbnail_path:
+            m = re.match(r"\d{8}", Path(clip_name).stem)
+            clip_date = m.group(0) if m else datetime.now().strftime("%Y%m%d")
+            out_dir = Path(self.thumbnail_path.replace("{date}", clip_date))
+            try:
+                out_dir.mkdir(exist_ok=True)  # pas de parents=True : voir docstring
+            except FileNotFoundError as err:
+                raise RuntimeError(
+                    f"dossier de base absent ({out_dir.parent}) : disque non monte ? "
+                    "vignette non enregistree"
+                ) from err
+            target = out_dir / f"{stem}.jpg"
+            tmp = target.with_suffix(".part")
+            tmp.write_bytes(img)
+            tmp.replace(target)  # atomique : jamais de fichier a moitie ecrit
+            return str(target), None
+
         if self.thumbnail_path:
             out_dir = Path(self.thumbnail_path)
         else:
             out_dir = Path(self.hass.config.path("www", THUMBNAIL_WWW_DIR))
         out_dir.mkdir(parents=True, exist_ok=True)
         short = re.sub(r"[^A-Za-z0-9_-]+", "_", udid[-12:])
-        stem = re.sub(r"[^A-Za-z0-9._-]+", "_", Path(clip_name).stem) or "clip"
         clip_file = out_dir / f"{short}_{stem}.jpg"
         last_file = out_dir / f"{short}_last.jpg"
         for target in (clip_file, last_file):

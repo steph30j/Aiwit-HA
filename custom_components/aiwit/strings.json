@@ -36,13 +36,13 @@
     "step": {
       "init": {
         "title": "Aiwit / EKEN — options",
-        "description": "Update credentials, client keys and/or the thumbnail output directory. Leave the password empty to keep the current one. Leave the thumbnail path empty to use the default (www/aiwit in your config folder → /local/aiwit/...). Use an absolute path already in your allowlist (e.g. /media/your_storage/aiwit/thumbnails) for notifications.",
+        "description": "Update credentials, client keys and/or the thumbnail output directory. Leave the password empty to keep the current one. Leave the thumbnail path empty to use the default (www/aiwit in your config folder → /local/aiwit/...). Use an absolute path already in your allowlist for notifications. Put {date} in it (e.g. /media/your_storage/aiwit/{date}) to save each thumbnail in the clip's day folder, next to the video, with nothing written under www.",
         "data": {
           "username": "Email / username",
           "password": "New password (leave empty to keep current)",
           "login_sign_key": "Login signature key (from tools/extract_keys.py)",
           "socket_key": "Socket login key (from tools/extract_keys.py)",
-          "thumbnail_path": "Thumbnail directory (absolute path, empty = www/aiwit)"
+          "thumbnail_path": "Thumbnail directory (absolute path, may contain {date}; empty = www/aiwit)"
         }
       }
     },
