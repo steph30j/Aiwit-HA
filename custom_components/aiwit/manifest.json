@@ -1,0 +1,12 @@
+{
+  "domain": "aiwit",
+  "name": "Aiwit / EKEN Doorbell",
+  "codeowners": [
+    "@steph30j"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/steph30j/Aiwit-HA",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/steph30j/Aiwit-HA/issues",
+  "version": "0.7.15"
+}
